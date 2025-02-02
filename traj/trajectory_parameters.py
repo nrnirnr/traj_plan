@@ -1,4 +1,3 @@
-
 def count_values(x_b, v_b, a_b, j_b, s_b, t):
     x_e = count_x(x_b, v_b, a_b, j_b, s_b, t)
     v_e = count_v(v_b, a_b, j_b, s_b, t)
@@ -131,26 +130,26 @@ def trajectory(x_b: float = 0, x_e: float = 0, v_b: float = 0, v_e: float = 0, v
     x = [x_b] + [0] * 15
     v = [v_b] + [0] * 15
     a = [a_b] + [0] * 15
-    j = [0, j_max, j_max, 0, 0, -j_max, -j_max, 0, 0, -j_max, -j_max, 0, 0, j_max, j_max]
-    s = [s_max, 0, -s_max, 0, -s_max, 0, s_max, 0, -s_max, 0, s_max, 0, s_max, 0, -s_max]
+    j = [0] * 16
+    if (x_e > x_b):
+        s = [s_max, 0, -s_max, 0, -s_max, 0, s_max, 0, -s_max, 0, s_max, 0, s_max, 0, -s_max]
+    else:
+        s = [-s_max, 0, s_max, 0, s_max, 0, -s_max, 0, s_max, 0, -s_max, 0, -s_max, 0, s_max]
 
     delta_x = x_e - x_b
     t_min = position_gain(delta_x, v_b, v_e, a_b, a_e, v_max, a_max, j_max, s_max)
 
-    t_min_sum = [0] * 16
-    for i in range(1, 16):
-        t_min_sum[i] = t_min_sum[i - 1] + t_min[i]
-
-    if t != False:
-        if t < t_min_sum[15] - eps:
+    '''if t != False:
+        if t < t_min_sum - eps:
             raise ValueError(f'Trajectory is unreachable int the set time. \n'
                              f'The minimal time is {t_min_sum}')
-        elif t > t_min_sum[15] + eps:
+        elif t > t_min_sum + eps:
             #пересчет траектории в заданных условиях
             return
-    else:
-        for i in range(1, 15):
-            update_values(i)
-        return t_min_sum, x, v, a, j, s
+    else:'''
+
+    for i in range(1, 15):
+        update_values(i)
+    return t_min, x, v, a, j, s
 
 
