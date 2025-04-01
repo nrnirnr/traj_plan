@@ -71,7 +71,8 @@ def plan(x_b: float, x_e: float,
             raise ValueError
         return T
 
-
+    if j_max == 0:
+        raise ValueError('Jerk limitations cannot be null')
     neg = False
     v_max = abs(v_max)
     a_max = abs(a_max)
