@@ -19,7 +19,7 @@ def plots(T, X, V, A, J,
 
     axes[0].plot(t, q, lw=3)
     axes[0].set_xlabel(r'$t, \mathrm{s}$', loc='right', fontsize=9)
-    axes[0].set_ylabel(r'$q, \mathrm{rad}$', loc='top', rotation=0, fontsize=9)
+    axes[0].set_ylabel(r'$q, ^\circ$', loc='top', rotation=0, fontsize=9)
     axes[0].set_title('displacement')
     axes[0].axhline(y=x_b, color='grey', linestyle=':', alpha=0.5)
     axes[0].axhline(y=x_e, color='grey', linestyle=':', alpha=0.5)
@@ -28,7 +28,7 @@ def plots(T, X, V, A, J,
 
     axes[1].plot(t, v, lw=3)
     axes[1].set_xlabel(r'$t, \mathrm{s}$', loc='right', fontsize=9)
-    axes[1].set_ylabel(r'$v, \frac{\mathrm{rad}}{\mathrm{s}}$', loc='top', rotation=0, fontsize=9)
+    axes[1].set_ylabel(r'$v, \frac{^\circ}{\mathrm{s}}$', loc='top', rotation=0, fontsize=9)
     axes[1].set_title('velocity')
     axes[1].axhline(y=0, color='black', lw=1)
     axes[1].axhline(y=v_b, color='grey', linestyle=':', alpha=0.5)
@@ -40,7 +40,7 @@ def plots(T, X, V, A, J,
 
     axes[2].plot(t, a, lw=3)
     axes[2].set_xlabel(r'$t, \mathrm{s}$', loc='right', fontsize=9)
-    axes[2].set_ylabel(r'$a, \frac{\mathrm{rad}}{\mathrm{s}^2}$', loc='top', rotation=0, fontsize=9)
+    axes[2].set_ylabel(r'$a, \frac{^\circ}{\mathrm{s}^2}$', loc='top', rotation=0, fontsize=9)
     axes[2].set_title('acceleration')
     axes[2].axhline(y=0, color='black', lw=1)
     axes[2].axhline(y=a_b, color='grey', linestyle=':', alpha=0.5)
@@ -52,7 +52,7 @@ def plots(T, X, V, A, J,
 
     axes[3].plot(t, j, lw=3)
     axes[3].set_xlabel(r'$t, \mathrm{s}$', loc='right', fontsize=9)
-    axes[3].set_ylabel(r'$j, \frac{\mathrm{rad}}{\mathrm{s}^3}$', loc='top', rotation=0, fontsize=9)
+    axes[3].set_ylabel(r'$j, \frac{^\circ}{\mathrm{s}^3}$', loc='top', rotation=0, fontsize=9)
     axes[3].set_title('jerk')
     axes[3].axhline(y=0, color='black', lw=1)
     axes[3].axhline(y=j_max, color='red', alpha=0.1)
